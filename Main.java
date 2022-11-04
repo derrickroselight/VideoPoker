@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class Main implements Runnable{
     public static final int royalFlushPrize = 800;
     public static final int straightFlushPrize = 50;
     public static final int fourKindPrize = 25;
@@ -11,11 +11,13 @@ public class Main {
     public static final int twoPairPrize = 2;
     public static final int jacksBetterPrize = 1;
 
-    public static void main(String[] args) {
+    @Override
+    public void run() {
         int[] deck = new int[52];
         for (int i = 0; i < 52; i++) {
             deck[i] = i;
         }
+
 
         /* 產生52取5所有組合的分數  */
         ArrayList[] allCombinations = generateAllCombinations(deck);
@@ -135,6 +137,8 @@ public class Main {
         return result;
     }
 
+
+    //所有組合
     private static ArrayList[] generateAllCombinations(int[] deck) {
         ArrayList[] allCombinations = new ArrayList[2_598_960];
         int index = 0;
@@ -354,4 +358,6 @@ public class Main {
         System.out.printf("The RTP is " + "%,.4f", result[0]);
         System.out.println();
     }
+
+
 }
