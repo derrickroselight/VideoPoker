@@ -7,8 +7,9 @@ public class ExampleMain {
 
     //主緒當中是靜態物件 誰都可以拿 且直接先做初始化
     static StaticObject staticObject = new StaticObject();
+    static StaticResult staticResult = new StaticResult();
 
-    static int threadNum = 20;
+    static int threadNum = 30000;
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -33,8 +34,17 @@ public class ExampleMain {
             Thread.sleep(1000);
         }
 
+
         //do some math
+        printResult();
 
 
+    }
+
+
+
+    static private void printResult(){
+        System.out.println("right: " + staticResult.result);
+        System.out.println("wrong: " + staticResult.wrongResult);
     }
 }
